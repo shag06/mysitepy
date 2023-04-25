@@ -226,25 +226,25 @@ def edit_training(id):
     form = TrainingForm()
     if request.method == "GET":
         db_sess = db_session.create_session()
-        news = db_sess.query(News).filter(News.id == id, News.user == current_user).first()
-        if news:
-            form.title.data = news.title
-            form.content.data = news.content
-            form.is_private.data = news.is_private
-            form.book.data = news.book
+        training = db_sess.query(News).filter(News.id == id, News.user == current_user).first()
+        if training:
+            form.title.data = training.title
+            form.content.data = training.content
+            form.is_private.data = training.is_private
+            form.book.data = training.book
         else:
             abort(404)
     if form.validate_on_submit():
         db_sess = db_session.create_session()
-        news = db_sess.query(News).filter(News.id == id,
+        training = db_sess.query(News).filter(News.id == id,
                                           News.user == current_user
                                           ).first()
-        if news:
-            news.title = form.title.data
-            news.content = form.content.data
-            news.is_private = form.is_private.data
-            news.is_training = True
-            news.book = form.book.data
+        if training:
+            training.title = form.title.data
+            training.content = form.content.data
+            training.is_private = form.is_private.data
+            training.is_training = True
+            training.book = form.book.data
             db_sess.commit()
             return redirect('/training_reed')
         else:
@@ -259,11 +259,11 @@ def edit_training(id):
 @login_required
 def training_delete(id):
     db_sess = db_session.create_session()
-    news = db_sess.query(News).filter(News.id == id,
+    training = db_sess.query(News).filter(News.id == id,
                                       News.user == current_user
                                       ).first()
-    if news:
-        db_sess.delete(news)
+    if training:
+        db_sess.delete(training)
         db_sess.commit()
     else:
         abort(404)
