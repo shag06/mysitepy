@@ -274,7 +274,7 @@ def training_delete(id):
 def pay_training_reed():
     db_sess = db_session.create_session()
     if current_user.is_authenticated:
-        user = db_sess.query(User).filter(current_user.pay_code != True).first()
+        user = db_sess.query(User).filter(current_user.pay_code == True).first()
         return render_template("pay_training.html", user=user)
     return render_template("pay_training.html")
 
