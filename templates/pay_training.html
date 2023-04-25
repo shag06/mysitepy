@@ -1,0 +1,31 @@
+{% extends "base2.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated and user%}
+<h1>Платные курсы</h1>
+<div class="col-md6 border rounded">
+    <h2>Изучение английских слов</h2>
+    </div>
+<div>
+        <a href="/return-file-1" class="btn btn-primary">
+            Посмотреть учебник
+        </a>
+        <a href="/pay-training-1" class="btn btn-primary">
+            Пройти тренировку
+        </a>
+    </div>
+<div class="col-md6 border rounded">
+    <h2>Решение задач по математике</h2>
+    </div>
+<div>
+        <a href="/return-file-2" class="btn btn-primary">
+            Посмотреть учебник
+        </a>
+        <a href="#" class="btn btn-primary">
+            Пока что нет тренировки
+        </a>
+    </div>
+{% else %}
+<h1>Зарегистрируйте платный аккаунт</h1>
+{% endif %}
+{% endblock %}
