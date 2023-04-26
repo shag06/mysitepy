@@ -202,7 +202,7 @@ def index2():
 
 @app.route('/create_training', methods=['GET', 'POST'])
 @login_required
-def add_news2():
+def add_training():
     form = TrainingForm()
     if form.validate_on_submit():
         db_sess = db_session.create_session()
