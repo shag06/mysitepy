@@ -5,10 +5,10 @@
 <form action="" method="post">
     {{ form.hidden_tag() }}
     <br><br><h1>{{ word }}</h1><br>
-    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModal{{word}}">
             Ответ
         </a>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal{{word}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
               <div class="modal-header">

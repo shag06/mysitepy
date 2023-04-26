@@ -298,7 +298,7 @@ def training1():
         return render_template('training1.html', title='Переведи слово',
                                form=form, code=words[word], word=word)
     return render_template('training1.html', title='Переведи слово',
-                           form=form, code='', word=word)
+                           form=form, code=words[word], word=word)
 
 
 def main():
