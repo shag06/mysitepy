@@ -26,6 +26,7 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 login_manager = LoginManager()
 login_manager.init_app(app)
+db_session.global_init("db/blogs.db")
 
 
 @login_manager.user_loader
@@ -303,7 +304,7 @@ def training1():
 
 def main():
     db_session.global_init("db/blogs.db")
-    app.run(port=8080, host='127.0.0.1')
+    app.run(port=8080, host='127.0.0.1', debug=True)
 
 
 if __name__ == '__main__':
